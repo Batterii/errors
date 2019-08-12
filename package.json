@@ -1,0 +1,55 @@
+{
+	"name": "@batterii/errors",
+	"version": "0.0.0",
+	"description": "Batterii Error Classes",
+	"author": "Batterii, LLC",
+	"license": "UNLICENSED",
+	"repository": "github:Batterii/errors",
+	"files": [
+		"dist/lib",
+		"dist/types"
+	],
+	"scripts": {
+		"generate": "yo --local-only",
+		"generate:class": "yo @batterii/ts-class  --local-only ",
+		"generate:module": "yo @batterii/ts-module --local-only ",
+		"generate:test": "yo @batterii/ts-test --local-only ",
+		"lint": "eslint . --ext .ts",
+		"lintf": "eslint . --ext .ts --fix",
+		"prebuild": "rm -rf dist",
+		"build": "tsc && tsc --project tsconfig-types.json",
+		"test": "mocha",
+		"test:unit": "mocha test/unit",
+		"test:integration": "mocha test/integration",
+		"test:build": "npm run build && mocha --config .mocharc-dist.yaml dist/test",
+		"preversion": "npm run lint && npm run test:build",
+		"prepublishOnly": "git push && git push --tags"
+	},
+	"main": "dist/lib/index.js",
+	"types": "dist/types/index.d.ts",
+	"devDependencies": {
+		"@batterii/eslint-config-ts": "^1.2.0",
+		"@batterii/generator-ts-class": "^0.1.0",
+		"@batterii/generator-ts-module": "^0.1.0",
+		"@batterii/generator-ts-test": "^0.1.0",
+		"@types/chai": "^4.2.0",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^10.14.15",
+		"@types/sinon": "^7.0.13",
+		"@types/sinon-chai": "^3.2.3",
+		"@typescript-eslint/eslint-plugin": "^1.13.0",
+		"@typescript-eslint/parser": "^1.13.0",
+		"chai": "^4.2.0",
+		"eslint": "^5.16.0",
+		"mocha": "^6.2.0",
+		"sinon": "^7.4.1",
+		"sinon-chai": "^3.3.0",
+		"source-map-support": "^0.5.12",
+		"ts-node": "^8.3.0",
+		"typescript": "3.4.5",
+		"yo": "^3.1.0"
+	},
+	"dependencies": {
+		"nani": "^2.4.0"
+	}
+}

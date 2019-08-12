@@ -1,0 +1,2 @@
+# errors
+Batterii Error Classes
