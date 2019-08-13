@@ -9,7 +9,7 @@ While you may wish to create custom error classes in-place during development,
 any such classes should ultimately live here.
 
 
-# Rationale
+## Rationale
 Although many custom error classes may not need to be available across various
 npm packages, we still probably want to keep them in here for several reasons.
 
