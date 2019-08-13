@@ -14,7 +14,7 @@ Although many custom error classes may not need to be available across various
 npm packages, we still probably want to keep them in here for several reasons.
 
 1. Error classes don't usually have a ton of functionality, and following the
-   best practice of having at most one class per file usually results up in a
+   best practice of having at most one class per file usually results in a
    ton of files in your project with hardly any code in them. Putting them here
    relocates that clutter so it's out of the way.
 2. When importing this project, named export intellisense in vscode makes it
