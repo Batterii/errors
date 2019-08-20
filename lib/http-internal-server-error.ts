@@ -7,7 +7,7 @@ import { HttpStatusError } from './http-status-error';
  * throw new HttpInternalServerError();
  *
  * // With an appended message:
- * throw new HttpNotFoundError('We done messed up');
+ * throw new HttpInternalServerError('We done messed up');
  */
 export class HttpInternalServerError extends HttpStatusError {
 	static status = 500;
