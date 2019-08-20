@@ -26,13 +26,24 @@ export class HttpStatusError extends BatteriiError {
 	static readonly statusMessage: string;
 
 	/**
-	 * Creates an http status error.
-	 * @param message - A custom message to append to the status message.
+	 * Custom message appended to the status message, if any.
 	 */
-	constructor(message?: string) {
+	readonly customMessage: string|null;
+
+	/**
+	 * Creates an http status error.
+	 * @param customMessage - A custom message to append to the status message.
+	 */
+	constructor(customMessage?: string) {
 		super();
 		const { statusMessage } = this.constructor as typeof HttpStatusError;
-		this.message = message ? `${statusMessage}: ${message}` : statusMessage;
+		if (customMessage) {
+			this.message = `${statusMessage}: ${customMessage}`;
+			this.customMessage = customMessage;
+		} else {
+			this.message = statusMessage;
+			this.customMessage = null;
+		}
 	}
 
 	/**

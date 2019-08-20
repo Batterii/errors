@@ -31,6 +31,18 @@ describe('HttpStatusError', function() {
 		expect(err.message).to.equal(`${TestError.statusMessage}: ${message}`);
 	});
 
+	it('stores provided message as customMessage property', function() {
+		const message = 'Custom message!';
+
+		err = new TestError(message);
+
+		expect(err.customMessage).to.equal(message);
+	});
+
+	it('defaults to null customMessage', function() {
+		expect(err.customMessage).to.be.null;
+	});
+
 	describe('@status', function() {
 		it('returns static status from class', function() {
 			expect(err.status).to.equal(TestError.status);
