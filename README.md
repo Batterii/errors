@@ -1,26 +1,19 @@
 # @batterii/errors
-A single npm package and git repository for Batterii error classes.
+Contains base error classes for errors defined in the Batterii organization.
 
-Makes use of [Nani](https://www.npmjs.com/package/nani) to enable easy and
-robust run-time checking against error type heirarchies, which is usually not
-possible in JavaScript or, by extension, TypeScript.
+Makes use of [Nani][1] to enable easy and robust run-time checking against error
+type heirarchies, which is usually not possible in JavaScript or, by extension,
+TypeScript.
 
-While you may wish to create custom error classes in-place during development,
-any such classes should ultimately live here.
+This exists primarily for [namespacing purposes][2] and will likely only ever
+contain a single class, `BatteriiError`, which should be the base class for
+every error defined in any package with the Batterii scope, or any open-source
+package we might end up having that is maintained by Batterii but is not
+released under the scope.
 
+If we publish (either publicly or privately) a package called
+`@batterii/encode-object`, for example, any errors it defines should derive from
+an `EncodeObjectError`, which in turn derives from `BatteriiError`.
 
-## Rationale
-Although many custom error classes may not need to be available across various
-npm packages, we still probably want to keep them in here for several reasons.
-
-1. Error classes don't usually have a ton of functionality, and following the
-   best practice of having at most one class per file usually results in a
-   ton of files in your project with hardly any code in them. Putting them here
-   relocates that clutter so it's out of the way.
-2. When importing this project, named export intellisense in vscode makes it
-   super easy to look through a list of all custom errors that have been
-   defined and pick out whatever you need. This would be much more difficult if
-   error classes were spread all through our codebase.
-3. `Nani` relies on unique class names for its heirarchy checking. Keeping all
-   of our errors here (namepaced under `BatteriiError`) makes it easier to
-   prevent potential naming collisions.
+[1]: https://www.npmjs.com/package/nani
+[2]: https://www.npmjs.com/package/nani#namespacing-your-errors
