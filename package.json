@@ -3,7 +3,7 @@
 	"version": "2.1.0",
 	"description": "Batterii Error Classes",
 	"author": "Batterii, LLC",
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"repository": "github:Batterii/errors",
 	"files": [
 		"dist/lib",
